@@ -796,7 +796,7 @@
   #endif
 #endif
 
-#define DEFAULT_EJERK    3.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    4.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor
@@ -806,7 +806,7 @@
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.06 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.040 // (mm) Distance from real junction edge
 #endif
 
 /**
