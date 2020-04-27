@@ -735,7 +735,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 398.44, 421 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 398.44, 419 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -755,7 +755,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 1000 }
+#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 2000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -770,7 +770,7 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          600    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  600    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
@@ -961,11 +961,11 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 45, 60, -0.46 }
+#define NOZZLE_TO_PROBE_OFFSET { 25, 10, -1.20 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 0
+#define MIN_PROBE_EDGE 10
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -1055,13 +1055,13 @@
 
 // @section extruder
 
-#define DISABLE_E false             // For all extruders
+#define DISABLE_E false                 // For all extruders
 #define DISABLE_INACTIVE_EXTRUDER  true // Keep only the active extruder enabled
 
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
+#define INVERT_X_DIR true               // |Prusa MK3S
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
 
@@ -1097,7 +1097,7 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
+#define X_BED_SIZE 215
 #define Y_BED_SIZE 260
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -1106,7 +1106,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 190
+#define Z_MAX_POS 200
 
 /**
  * Software Endstops
@@ -1364,7 +1364,7 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT 50  //(X_BED_SIZE/2)   // X point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_X_POINT 60  //(X_BED_SIZE/2)   // X point for Z homing when homing all axes (G28).
   #define Z_SAFE_HOMING_Y_POINT 130//(Y_BED_SIZE/2)  // Y point for Z homing when homing all axes (G28).
 #endif
 
